@@ -1,0 +1,95 @@
+( Web based Generator )
+
+ADMIN
+- ID number database
+- Surver
+	- Question
+	- Choices
+	- Result
+	- ( Formula ):
+		Category ( can be anything )
+		Choices - 8 ( Can be 10 or 20 should be flexible )
+		Person who voted for each choices
+		Divide the choices into 100%
+		So each choices has a certain percentage depends on how many users picked that choice
+		Who has the largest percentage
+		
+		A = 10%  ( Users who picked A )
+		B = 80% ( Users who picked B )
+		C = 10%  ( Users who picked C )
+
+		NOT LIMITED TO 3 CHOICES SHOULD BE UNLIMITED.
+		
+- Search for users
+- Ban
+	- 1 = Banned ( DATE TIME )
+	- 0 = Normal
+
+- School Activity
+	- Activity title / When / Where
+	- Descriptions
+	- Upload images for the specific activity
+	- Comment student via facebook comment
+
+USER:	
+- User Registration
+	- Based on id number
+	- Validate
+
+- Personal data of user
+	- Edit
+
+- User
+	- Question
+	- Choices
+	
+	
+DONE:
+
+USER:
+- User registration
+- User login
+- User session
+- User logout
+
+ADMIN:
+- Admin registration
+- Admin login
+- Admin logout
+- Admin session
+
+ADMIN PRIVILEGES:
+- Admin can add new student number
+- Admin can edit student number
+- Checks if the student number is already in the database or not
+
+Restriction:
+- User can not go to the admin dashboard
+- Admin is allowed to view the user page
+- Only one student/user can use the student number
+- Checks if the student number is valid or does exist in the database
+
+
+PROCESSING OF REGISTRATION:
+- Once given the student number will be encoded and added to the system
+- Once lost notify an administrator to ban your account
+
+ADMIN:
+ADDING OF SURVEY:
+- Category ( For student / Teacher / General = School( Activity / Security / Student / Teacher ) )
+- Title of survey / Question
+- Description
+- Choices: a / b / c /
+
+ADMIN:
+SURVEY COMMENTS / SUGGESTIONS
+- DELETE
+- EDIT
+
+USER:
+SURVEY COMMENTS / SUGGESTIONS
+- ADD
+- EDIT
+
+ADMIN:
+- CAN SEE THE RESULT OF SURVEY ( FORMULA )

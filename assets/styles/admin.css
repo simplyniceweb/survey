@@ -1,0 +1,72 @@
+#container .tab-title {
+	background: #f1f1f1;
+	border-bottom: 1px solid #ccc
+}
+#container .tab-title, #container .label-form {
+	padding: 5px 5px 5px 5px;
+}
+#container #student-number {
+	margin: 5px;
+	float: left;
+	width: 300px;
+	min-height: 50px;
+	border: 1px solid #CCC
+}
+#student-number input[type="text"] {
+	margin: 5px;
+	padding: 5px;
+	width: 260px;
+}
+#student-number button {
+	color: #fff;
+	width: 80px;
+	padding: 5px;
+	border: none;
+	margin: 5px;
+	background: #619def;
+}
+
+#container #student-edit {
+	margin: 5px;
+	float: left;
+	width: 300px;
+	min-height: 50px;
+	border: 1px solid #CCC
+}
+#student-edit select {
+	padding: 5px;
+	margin: 5px;
+}
+#student-edit input[type="text"] {
+	margin: 5px;
+	padding: 5px;
+	width: 260px;
+}
+#student-edit button {
+	color: #fff;
+	width: 80px;
+	padding: 5px;
+	border: none;
+	margin: 5px;
+	background: #619def;
+}
+
+#container #student-delete {
+	margin: 5px;
+	float: left;
+	width: 300px;
+	min-height: 50px;
+	border: 1px solid #CCC
+}
+#student-delete select {
+	padding: 5px;
+	margin: 5px;
+}
+#student-delete button {
+	color: #fff;
+	width: 80px;
+	padding: 5px;
+	border: none;
+	margin: 5px;
+	background: #619def;
+}
