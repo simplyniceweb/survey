@@ -10,6 +10,19 @@ class Index extends CI_Controller {
 		$mysession = $this->session->userdata('logged');
 		if($mysession) redirect('main');
 
+		$unban = $this->db->query("SELECT * FROM users WHERE ban_date < NOW()");
+		$status = array(
+			'user_status' => 0,
+			'ban_date'    => "0000-00-00"
+		);
+		
+		if($unban->num_rows() > 0) {
+			foreach($unban->result() as $unb) {
+				$this->db->where('user_id', $unb->user_id);
+				$this->db->update('users', $status);
+			}
+		}
+
 		$this->load->view('login');
 	}
 	

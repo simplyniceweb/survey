@@ -23,15 +23,31 @@
     	<div class="col-md-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Add Student Number</h3>
+                    <h3 class="panel-title">Ban Student</h3>
                 </div>
                 
                 <div class="panel-body">
                     <?php echo form_open('ban/process'); ?>
+					
+					<?php if(isset($_GET['date']) && $_GET['date'] == "less"): ?>
+					<div class="list-group-item">
+						<div class="alert alert-danger">
+							<small>Unban date should not be less than the date today.</small>
+						</div>
+					</div>
+					<?php endif; ?>
+					<?php if(isset($_GET['date']) && $_GET['date'] == "eq"): ?>
+					<div class="list-group-item">
+						<div class="alert alert-danger">
+							<small>Unban date should not be equal than the date today.</small>
+						</div>
+					</div>
+					<?php endif; ?>
+
                     <div class="form-group">
-                        <label for="department_id"><small>Department</small></label>
+                        <label for="department_id"><small>Course</small></label>
                         <select id="department_id" class="form-control design department-id" name="department_id" data-action="0" required="required">
-                            <option value="">Choose Department</option>
+                            <option value="">Choose Course</option>
                             <?php foreach($department as $did) { ?>
                             <option value="<?php echo $did->department_id; ?>"><?php echo $did->department_name; ?></option>
                             <?php } ?>
@@ -43,16 +59,20 @@
                             <option value="">Choose Student</option>
                         </select>
                     </div>
+					<div class="form-group">
+					<label for="unban-date"><small>Unban date</small></label>
+					<input type="date" id="unban-date" class="form-control" name="unban_date"/>
+					</div>
                     <button type="button" class="btn btn-success banunban" data-action="1">Ban</button>
                     <?php echo form_close(); ?>
                 </div>
             </div>
         </div>
-        
+		
         <div class="col-md-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Add Student Number</h3>
+                    <h3 class="panel-title">Unban Student</h3>
                 </div>
                 
                 <div class="panel-body">
@@ -77,6 +97,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </div>
 

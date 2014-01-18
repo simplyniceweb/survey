@@ -54,13 +54,28 @@ class Ban extends CI_Controller {
 	public function process() {
 		$user_id = $this->input->post("student_id");
 		$action = $this->input->post("action");
+		$unban_date = $this->input->post("unban_date");
 		if(!is_numeric($user_id) || !is_numeric($action)){
 			return false;
 		}
 		
-		$data = array(
-			'user_status' => $action
-		);
+		if($action == 1) {
+			$today = date("Y-m-d");
+			if($unban_date < $today) {
+				$less = "less";
+				echo $less;
+				return $less;
+			} else if($today == $unban_date) {
+				$equal = "equal";
+				echo $equal;
+				return $equal;
+			}
+			$data['ban_date'] = $unban_date;
+		} else {
+			$data['ban_date'] = "0000-00-00";
+		}
+
+		$data['user_status'] = $action;
 		
 		$this->db->where('user_id', $user_id);
 		$this->db->update('users', $data);

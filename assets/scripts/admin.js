@@ -120,6 +120,15 @@
 					data: forms,
 					cache: false,
 					success: function (response) {
+						if(response == "less") {
+							alert("Unban date should not be less than the date today.");
+							return false;
+						}
+						if(response == "equal") {
+							alert("Unban date should not be equal than the date today.");
+							return false;
+						}
+						
 						$(".design").select2("val", "");
 						$('select#student_id'+action).html(response);
 						if(action == 1) {
