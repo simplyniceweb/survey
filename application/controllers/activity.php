@@ -281,7 +281,7 @@ class Activity extends CI_Controller {
 		$data = array(
 			'session'  => $mysession,
 			'activity' => $activity,
-			'survey'   => $survey,
+			'survey'   => $survey->result(),
 			'act_id'   => $id,
 			'department'   => $department->result()
 		);

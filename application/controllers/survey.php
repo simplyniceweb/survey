@@ -158,7 +158,7 @@ class Survey extends CI_Controller {
 
 		redirect('activity/activity_edit/'.$id.'/?edit=true');
 	}
-	
+
 	public function survey_delete() {
 		$mysession = $this->session->userdata('logged');
 		if(!$mysession) redirect('index');
