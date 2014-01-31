@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
 </head>
 <body>
-<?php require_once('/../includes/header.php'); ?>	
+<?php include(__DIR__ . "/../includes/header.php"); ?>
 
 <div class="container">
 	<div class="row">
@@ -28,6 +28,7 @@
                     	<label for="activity_category"><small>Activity Category</small></label>
                         <select name="activity_category" id="activity_category" class="form-control" required="required">
                             <option value="">Select Category</option>
+                            <option <?php if($act->activity_category == 0):?> selected="selected"<?php endif; ?>value="0">General</option>
                             <?php foreach($department as $did) { ?>
                             <option <?php if($act->activity_category == $did->department_id):?>selected="selected"<?php endif; ?> value="<?php echo $did->department_id; ?>"><?php echo $did->department_name; ?></option>
                             <?php } ?>
@@ -43,11 +44,12 @@
                     	<label for="activity_description"><small>Activity Description</small></label>
                     	<textarea name="activity_description" id="activity_description" class="form-control" required="required"><?php echo $act->activity_description; ?></textarea>
                     </div>
+                    <button type="submit" class="btn btn-success pull-right">Update</button>
                 </div>
              </div>
         </div>
         
-        <?php foreach($survey as $srv) { ?>
+        <?php if(!is_null($survey)) { foreach($survey as $srv) { ?>
      	<div class="col-sm-4">
             <div class="panel panel-primary survey">
                 <div class="panel-heading">
@@ -64,11 +66,10 @@
                     	<label for="survey_description"><small>Survey Description</small></label>
                     	<textarea name="survey_description" id="survey_description" class="form-control"><?php echo $srv->survey_description; ?></textarea>
                     </div>
-                    <button type="submit" class="btn btn-success pull-right">Update</button>
              	</div>
              </div>
         </div>
-       <?php } ?>
+       <?php } } ?>
        <?php echo form_close(); ?>
  
     </div>

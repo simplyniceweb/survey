@@ -253,17 +253,16 @@ class Activity extends CI_Controller {
 		redirect('');
 	}
 	
-	public function activity_edit() {		
+	public function activity_edit() {	
 		$mysession = $this->session->userdata('logged');
 		if (!$mysession) redirect('');
-		
 		$id = $this->uri->segment(3);
 		
 		$this->db->from('department');
 		$this->db->where('department_status', 0);
 		$this->db->order_by("department_id", "desc"); 
 		$department = $this->db->get();
-		
+
 		$this->db->from('activity');
 		$this->db->where('activity_id', $id);
 		$activity = $this->db->get();
@@ -271,22 +270,22 @@ class Activity extends CI_Controller {
 		$this->db->from('survey');
 		$this->db->where('activity_id', $id);
 		$survey = $this->db->get();
-		
+
 		if($survey->num_rows() > 0) {
 			$survey = $survey->result();
 		} else {
 			$survey = NULL;
 		}
-		
-		$data = array(
+
+		$view = array(
 			'session'  => $mysession,
 			'activity' => $activity,
-			'survey'   => $survey->result(),
+			'survey'   => $survey,
 			'act_id'   => $id,
-			'department'   => $department->result()
+			'department' => $department->result()
 		);
 
-		$this->load->view('survey/edit', $data);
+		$this->load->view('survey/edit', $view);
 	}
 	
 	public function comment() {
