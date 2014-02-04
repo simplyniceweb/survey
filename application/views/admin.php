@@ -20,6 +20,7 @@
             	<ul class="list-group">
                     <li class="list-group-item"><a href="main">View Activity</a></li>
                     <li class="list-group-item"><a href="ban">Ban user</a></li>
+                    <li class="list-group-item"><a href="admin/edit_user">Edit user</a></li>
                     <li class="list-group-item"><a href="department">Add Department</a></li>
                     <li class="list-group-item"><a href="survey">Add School Activity & Survey</a></li>
                     <li class="list-group-item"><a href="studentnumber">Add Student Number</a></li>

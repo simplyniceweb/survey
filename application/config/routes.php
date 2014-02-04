@@ -42,6 +42,7 @@ $route['default_controller'] = "index";
 $route['register'] = "index/register";
 $route['process'] = "index/process";
 $route['activity/(:num)'] = "activity/index";
+$route['settings/(:num)'] = "settings/index";
 $route['404_override'] = '';
 
 

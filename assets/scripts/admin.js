@@ -148,4 +148,31 @@
 	config.doc.getStudent();
 	config.doc.BanFunc();
 	
+	var editUserConf = {
+		select: ".edit-user"
+	}
+	
+	
+	var editUserFunc = {
+		show: function(){
+			return this.delegate(editUserConf.select, 'change', function () {
+				var me = $(this), department_id = me.val();
+				if(department_id == "") return false;
+				jQuery.ajax({
+					type: "POST",
+					url: config.baseUrl+"/admin/user_list/",
+					data: {'department_id': department_id},
+					cache: false,
+					success: function (response) {
+						$("div.users-list").html(response);
+					}, error: function () {
+						console.log('Something went wrong..');
+					}
+				});
+			})
+		}
+	}
+	$.extend(config.doc, editUserFunc);
+	config.doc.show();
+	
 }(jQuery, window, document));

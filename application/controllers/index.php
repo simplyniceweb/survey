@@ -145,9 +145,11 @@ class Index extends CI_Controller {
 		} else if(! $this->upload->do_upload() && $original_image != "") {
 			$profile_picture = $original_image;
 		}
-		
+
+		$user_id = $this->input->post("user_id");
+
 		$this->db->from('users');
-		$this->db->where('user_id', $mysession['user_id']);
+		$this->db->where('user_id', $user_id);
 		$is_user = $this->db->get();
 		
 		if($is_user->num_rows > 0) {
@@ -161,10 +163,20 @@ class Index extends CI_Controller {
 				'user_birthday'        => $this->input->post('student_birthday'),
 			);
 			
-			$this->db->where('user_id', $mysession['user_id']);
+			$password = $this->input->post("student_password");
+			
+			if(!empty($password)) {
+				$data['user_password'] = sha1($password);
+			}
+			
+			$this->db->where('user_id', $user_id);
 			$this->db->update('users', $data);
 			
-			redirect('settings/?update=true');
+			if($mysession['user_id'] == $user_id) {
+				redirect('settings/?update=true');
+			} else {
+				redirect('settings/'. $user_id .'?update=true');
+			}
 			
 		} else {
 			return FALSE;
