@@ -41,7 +41,7 @@ class Admin extends CI_Controller {
 			'student' => $student->result(),
 			'department'   => $department->result()
 		);
-		
+
 		$this->load->view('users', $data);
 	}
 
@@ -54,7 +54,7 @@ class Admin extends CI_Controller {
 		
 		$this->db->select('*');
 		$this->db->from('student_id');
-		$this->db->join('users', 'users.user_std_id = student_id.student_id', 'inner');
+		$this->db->join('users', 'users.user_std_id = student_id.unique', 'inner');
 		$this->db->join('department', 'department.department_id = student_id.department_id', 'inner');
 		$this->db->where('student_id.department_id', $department_id);
 		$this->db->where("student_id.id_status", 0);

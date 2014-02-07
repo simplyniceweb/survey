@@ -14,7 +14,7 @@
 	<?php if(isset($_GET['edit']) && $_GET['edit'] == 'true'): ?>
         <div class="alert alert-success">Activity has been updated successfuly!</div>
     <?php endif; ?>
-    <?php echo form_open('survey/edit?id='.$act_id); ?>
+    <?php echo form_open_multipart('survey/edit?id='.$act_id); ?>
     	<?php foreach($activity->result() as $act ) {} ?>
     	<div class="col-sm-4">
             <div class="panel panel-primary">
@@ -44,6 +44,12 @@
                     	<label for="activity_description"><small>Activity Description</small></label>
                     	<textarea name="activity_description" id="activity_description" class="form-control" required="required"><?php echo $act->activity_description; ?></textarea>
                     </div>
+
+                    <div class="form-group">
+                    	<label for="activity_photos"><small>Activity Photos</small></label>
+                    	<input type="file" name="activity_photos[]" id="activity_photos" class="form-control" multiple>
+                    </div>
+
                     <button type="submit" class="btn btn-success pull-right">Update</button>
                 </div>
              </div>

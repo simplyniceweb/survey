@@ -81,13 +81,13 @@ $civil_status = array(
                      	<label for="student_birthday"><small>Student Birthday</small></label>
                     	<input type="date" id="student_birthday" name="student_birthday" value="<?php echo date('Y-m-d', strtotime($info->user_birthday)); ?>" class="form-control">
                     </div>
-                    <?php if($action == 1) { ?>
+                    <?php //if($action == 1) { ?>
                      <div class="form-group">
                      	<label for="student_password"><small>Student Password</small></label>
                     	<input type="password" id="student_password" name="student_password" value="" class="form-control">
                     	<small>Leave the password blank if you don't want to change the user's password. Password is not visible for security reason.</small>
                     </div>
-                    <?php } ?>
+                    <?php //} ?>
                     <input type="hidden" name="user_id" value="<?php echo $info->user_id; ?>"/>
                     <button type="submit" class="btn btn-primary pull-right">Update</button>
                 </div>

@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<base href="<?php echo base_url(); ?>">
 	<title>-::Web Based Generator::-</title>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/styles/design.css"/>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
 </head>
 <body>

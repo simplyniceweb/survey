@@ -155,7 +155,28 @@ class Survey extends CI_Controller {
 		
 		$this->db->where('activity_id', $id);
 		$this->db->update('survey', $survey);
-
+		
+		// Image configuration, upload and database insertion
+		$this->upload->initialize(array(
+			"upload_path" => "assets/activity/",
+			"allowed_types" => 'gif|jpg|png|jpeg',
+			"max_size" => '2000',
+			"encrypt_name" => 'TRUE',
+			"remove_spaces" => 'TRUE',
+			"is_image" => '1'
+		));
+		
+		if($this->upload->do_multi_upload("activity_photos")){
+			$activity_img = $this->upload->get_multi_upload_data();
+			foreach($activity_img as $img_array) {
+				$upload = array(
+					'image_name'  => $img_array['file_name'],
+					'activity_id' => $id
+				);
+				
+				$this->db->insert('activity_image', $upload);
+			}
+		}
 		redirect('activity/activity_edit/'.$id.'/?edit=true');
 	}
 

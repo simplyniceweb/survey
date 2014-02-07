@@ -28,7 +28,7 @@ class Studentnumber extends CI_Controller {
 			'department'   => $department->result()
 		);
 		
-		$this->load->view('studentnumber', $data);
+		$this->load->view('studentNumber', $data);
 	}
 	
 	public function student_no_add() {
