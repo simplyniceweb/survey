@@ -9,7 +9,7 @@
 		.mainpage { margin-top: 150px; }
 		.mainpage .badge { margin-left: 20px }
 		.activity-list { margin-top: -4px; }
-		.nav-justified {  background: #FFF; border-radius: 4px }
+		.nav-justified {  background: #FFF; border-radius: 4px; padding: 8px }
 	</style>
 </head>
 <body>
