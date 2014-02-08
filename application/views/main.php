@@ -6,9 +6,10 @@
 	<title>-::Web Based Generator::<?php echo $title; ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
     <style>
-		.mainpage { margin-top: 150px }
+		.mainpage { margin-top: 150px; }
 		.mainpage .badge { margin-left: 20px }
-		.activity-list { margin-top: -3px }
+		.activity-list { margin-top: -4px; }
+		.nav-justified {  background: #FFF; border-radius: 4px }
 	</style>
 </head>
 <body>
@@ -28,7 +29,7 @@
                 </select>
             <?php } else { ?>
 				<?php foreach($department as $dept) { ?>
-                <li data-tab-id="<?php echo $dept->department_id; ?>"><a href="javascript: void(0);"><?php echo $dept->department_name; ?> <span class="badge pull-right"><?php echo $counter ;?></span></a></li>
+                <li class="active" data-tab-id="<?php echo $dept->department_id; ?>"><a href="javascript: void(0);"><?php echo $dept->department_name; ?> <span class="badge pull-right"><?php echo $counter ;?></span></a></li>
                 <li data-tab-id="0"><a href="javascript: void(0);">General <span class="badge pull-right"><?php echo $general; ?></span></a></li>
                 <?php } ?>
             <?php } ?>

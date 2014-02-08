@@ -12,19 +12,19 @@
 
 <div class="container">
 	<div class="row">
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
             <div class="panel-heading">
-				<h3 class="panel-title">Administrator Dashboard</h3>
+				<h3>Dashboard</h3>
             </div>
             
             <div class="panel-body">
             	<ul class="list-group">
-                    <li class="list-group-item"><a href="main">View Activity</a></li>
-                    <li class="list-group-item"><a href="ban">Ban user</a></li>
-                    <li class="list-group-item"><a href="admin/edit_user">Edit user</a></li>
-                    <li class="list-group-item"><a href="department">Add Department</a></li>
-                    <li class="list-group-item"><a href="survey">Add School Activity & Survey</a></li>
-                    <li class="list-group-item"><a href="studentnumber">Add Student Number</a></li>
+                    <li class="list-group-item"><i class="glyphicon glyphicon-eye-open"></i> <a href="main">View Activity</a></li>
+                    <li class="list-group-item"><i class="glyphicon glyphicon-lock"></i> <a href="ban">Ban user</a></li>
+                    <li class="list-group-item"><i class="glyphicon glyphicon-pencil"></i> <a href="admin/edit_user">Edit user</a></li>
+                    <li class="list-group-item"><i class="glyphicon glyphicon-briefcase"></i> <a href="department">Add Department</a></li>
+                    <li class="list-group-item"><i class="glyphicon glyphicon-headphones"></i> <a href="survey">Add School Activity & Survey</a></li>
+                    <li class="list-group-item"><i class="glyphicon glyphicon-user"></i> <a href="studentnumber">Add Student Number</a></li>
                 </ul>
             </div>
         </div>

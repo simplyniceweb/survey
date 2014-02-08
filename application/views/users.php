@@ -5,6 +5,9 @@
 	<base href="<?php echo base_url(); ?>">
 	<title>-::Web Based Generator::<?php echo $title; ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
+	<style>
+		.mainpage { background: #FFF }
+	</style>
 </head>
 <body>
 <?php require_once('includes/header.php'); ?>
@@ -12,7 +15,7 @@
 <div class="container mainpage">
     <div class="row">
         <div class="col-md-12">
-			<legend>Edit user</legend>
+			<legend><h3>Edit user</h3></legend>
 			<div class="form-group">
 				<label for="department_id"><small>Course</small></label>
 				<select id="department_id" class="edit-user form-control" name="department_id" required="required">

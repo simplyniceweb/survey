@@ -14,6 +14,11 @@ $civil_status = array(
 	<base href="<?php echo base_url(); ?>">
 	<title>-::Web Based Generator::<?php echo $title; ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
+	<style>
+		body {
+		background-color: #ee7778;
+	}
+	</style>
 </head>
 <body>
 <?php require_once('includes/header.php'); ?>
