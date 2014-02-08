@@ -17,6 +17,9 @@
         <div class="col-md-12">
 			<legend><h3>Edit user</h3></legend>
 			<div class="form-group">
+				<input type="text" class="form-control" name="username" required="required" placeholder="Student Name"/>
+			</div>
+			<div class="form-group">
 				<label for="department_id"><small>Course</small></label>
 				<select id="department_id" class="edit-user form-control" name="department_id" required="required">
 					<option value="">Choose Course</option>

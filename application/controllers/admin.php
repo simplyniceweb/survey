@@ -48,18 +48,24 @@ class Admin extends CI_Controller {
 	public function user_list() {
 		$mysession = $this->session->userdata('logged');
 		if(!$mysession) redirect('index');
-		if($mysession['user_level'] == 0) redirect('index');
+		if($mysession['user_level'] == 0) redirect('homepage');
 		
 		$department_id = $this->input->post("department_id");
+		$user_name = $this->input->post("user_name");
 		
 		$this->db->select('*');
 		$this->db->from('student_id');
 		$this->db->join('users', 'users.user_std_id = student_id.unique', 'inner');
 		$this->db->join('department', 'department.department_id = student_id.department_id', 'inner');
-		$this->db->where('student_id.department_id', $department_id);
+		if(!empty($department_id)) {
+			$this->db->where("student_id.department_id", $department_id);
+		}
 		$this->db->where("student_id.id_status", 0);
 		$this->db->where("users.user_status", 0);
 		$this->db->where("department.department_status", 0);
+		if(!is_null($user_name)) {
+			$this->db->like("users.user_name", $user_name);
+		}
 		$students = $this->db->get();
 		
 		$data = array(

@@ -154,25 +154,37 @@
 	
 	
 	var editUserFunc = {
-		show: function(){
+		showUsers: function(){
 			return this.delegate(editUserConf.select, 'change', function () {
 				var me = $(this), department_id = me.val();
-				if(department_id == "") return false;
-				jQuery.ajax({
-					type: "POST",
-					url: config.baseUrl+"/admin/user_list/",
-					data: {'department_id': department_id},
-					cache: false,
-					success: function (response) {
-						$("div.users-list").html(response);
-					}, error: function () {
-						console.log('Something went wrong..');
-					}
-				});
+				var user_name = $("input[name=username]").val();
+				config.doc.userProcess(department_id, user_name);
 			})
+		},
+		enterUsers: function() {
+			return this.delegate("input[name=username]", 'keyup', function (e) {
+				if(e.keyCode != 13) return false;
+				var me = $(this), department_id = $(editUserConf.select).val();
+				var user_name = $("input[name=username]").val();
+				config.doc.userProcess(department_id, user_name);
+			})
+		},
+		userProcess: function(department_id, user_name) {
+			jQuery.ajax({
+				type: "POST",
+				url: config.baseUrl+"/admin/user_list/",
+				data: {'department_id': department_id, 'user_name': user_name},
+				cache: false,
+				success: function (response) {
+					$("div.users-list").html(response);
+				}, error: function () {
+					console.log('Something went wrong..');
+				}
+			});
 		}
 	}
 	$.extend(config.doc, editUserFunc);
-	config.doc.show();
+	config.doc.showUsers();
+	config.doc.enterUsers();
 	
 }(jQuery, window, document));
