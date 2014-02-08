@@ -6,6 +6,51 @@
 	<title>Web Based Generator::Registration</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/datepicker.css">
+	<style>
+	.page-header {
+		border-bottom: 1px solid #FFFFFF;
+		margin: 20px 0;
+		padding-bottom: 9px;
+		text-align: center;
+	}
+
+	.form-control {
+		border: 1px solid #D6D6D6;
+		border-radius: 0;
+		box-shadow: none;
+		height: 50px;
+		padding: 6px 15px;
+	}
+
+	body {
+		background-color: #ee7778;
+	}
+
+	.row {
+		background: #ededed;
+		padding: 20px 50px 20px 50px;
+		margin: 100px;
+	}
+
+	legend {
+		border: medium none;
+		color: #7F7F7F;
+		display: block;
+		font-size: 20px;
+		line-height: inherit;
+		margin-bottom: 15px;
+		padding: 0;
+		text-align: center;
+		width: 100%;
+	}
+
+	.btn {
+		padding: 10px;
+		border-radius: 0;
+		border: none;
+		font-size: 21px;
+	}
+	</style>
 	<script src="<?php echo base_url(); ?>assets/scripts/jquery.js"></script>
 	<script src="<?php echo base_url(); ?>assets/scripts/jquery-ui.js"></script>
 	<script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap-datepicker.js"></script>
@@ -18,26 +63,28 @@
 <body>
 
 <div id="container">
-
 	<div class="row">
-		<div class="col-sm-4 col-md-offset-4">
 		<?php if(isset($_GET['std_id']) && $_GET['std_id'] == "invalid"): ?>
+		<div class="col-sm-12">
 		<div class="list-group-item">
 			<div class="alert alert-danger">
 				<small>Invalid Student Number!</small>
 			</div>
 		</div>
 		<?php endif; ?>
-		
+
 		<?php if(isset($_GET['used_id']) && $_GET['used_id'] == "true"): ?>
+		<div class="col-sm-12">
 		<div class="list-group-item">
 			<div class="alert alert-danger">
 				<small>Invalid Student Number!</small>
 			</div>
 		</div>
+		</div>
 		<?php endif; ?>
-	
+
 		<?php if(isset($_GET['add']) && $_GET['add'] == "true"): ?>
+		<div class="col-sm-12">
 		<div class="list-group-item">
 			<div class="alert alert-success">
 				<small>Successful registration!</small>
@@ -45,9 +92,10 @@
 				<a href="">Sign In!</a>
 			</div>
 		</div>
+		</div>
 		<?php endif; ?>
-		<?php echo form_open('index/process'); ?>
-			<legend><h4>REGISTER</h4></legend>
+		<?php echo form_open('index/process',array('class' => 'form-horizontal')); ?>
+			<legend><h3>REGISTER</h3> <a class="col-md-12" href="">Have an account? Sign In!</a></legend>
 
 			<div class="list-group-item">
 				<label><small>Username</small></label>
@@ -79,8 +127,6 @@
 					<small>Register</small>
 				</button>
 			</div>
-			
-			<a class="col-md-offset-4" href="">Have an account? Sign In!</a>
 		<?php echo form_close(); ?>
 		</div>
 	</div>

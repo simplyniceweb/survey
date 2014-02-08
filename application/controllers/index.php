@@ -23,11 +23,7 @@ class Index extends CI_Controller {
 			}
 		}
 
-		$data = array(
-			'ban_date' => NULL
-		);
-
-		$this->load->view('login', $data);
+		$this->load->view('login');
 	}
 	
 	public function register() {
