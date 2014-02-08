@@ -23,7 +23,11 @@ class Index extends CI_Controller {
 			}
 		}
 
-		$this->load->view('login');
+		$data = array(
+			'ban_date' => NULL
+		);
+
+		$this->load->view('login', $data);
 	}
 	
 	public function register() {
@@ -52,8 +56,15 @@ class Index extends CI_Controller {
 		
 		foreach($login->result() as $row) {
 
-			if($row->user_status == 1) redirect('index/?ban=true');
+			if($row->user_status == 1)  {
+				$data = array(
+					'ban_date' => $row->ban_date
+				);
 
+				$this->session->set_flashdata($data);
+				redirect('index/?ban=true');
+			}
+			
 			$department = NULL;
 			$sess_array = array(
 				'logged'          => true,

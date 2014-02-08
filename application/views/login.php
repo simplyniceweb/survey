@@ -63,10 +63,13 @@
 	</div>
 	<?php endif; ?>
 
-	<?php if(isset($_GET['ban']) && $_GET['ban'] == "true"): ?>
+	<?php 
+	$exist = $this->session->flashdata('ban_date');
+	if($exist && isset($_GET['ban']) && $_GET['ban'] == "true"): 
+	?>
 	<div class="list-group-item">
 		<div class="alert alert-danger">
-			<small>An adminastrator blocked you from viewing this system.</small>
+			<small>An adminastrator blocked you from viewing this system until <?php echo $this->session->flashdata('ban_date'); ?>.</small>
 		</div>
 	</div>
 	<?php endif; ?>
