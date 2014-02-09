@@ -78,9 +78,9 @@
                 <div class="panel-body">
                    <form role="form" method="post" accept-charset="utf-8" class="form-update">
                     <div class="form-group">
-                        <label for="department_id"><small>Department</small></label>
+                        <label for="department_id"><small>Course</small></label>
                         <select id="department_id" class="form-control design department-id" name="department_id" data-action="1" required="required">
-                            <option value="">Choose Department</option>
+                            <option value="">Choose Course</option>
                             <?php foreach($department as $did) { ?>
                             <option value="<?php echo $did->department_id; ?>"><?php echo $did->department_name; ?></option>
                             <?php } ?>

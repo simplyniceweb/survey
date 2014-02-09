@@ -14,7 +14,9 @@
 		trigger : 'button.add-question',
 		remove  : 'span.remove-question',
 		add     : 'input.survey-interface',
+		only    : '.only-survey',
 		status  : 0,
+		status_2: 0,
 	}
 	
 	var questionFunc = {
@@ -37,7 +39,6 @@
 				$('div.this-remove-'+removal).remove();
 			});
 		},
-		
 		showSurvey : function() {
 			return this.delegate(questionConf.add, 'click', function () {
 				if(questionConf.status == 0) {
@@ -50,6 +51,27 @@
 					$(this).val(0);
 				}
 			});
+		},
+		onlySurvey: function() {
+			return this.delegate(questionConf.only, 'click', function () {
+				if(questionConf.status_2 == 0) {
+					$('div.survey').show();
+					questionConf.status_2 = 1;
+					$(this).val(1);
+					if(questionConf.status == 0) {
+						$(questionConf.add).trigger( "click" );
+					}
+				} else {
+					$('div.survey').hide();
+					questionConf.status_2 = 0;
+					$(this).val(0);
+					if(questionConf.status == 1) {
+						$(questionConf.add).trigger( "click" );
+					}
+				}
+
+				$('div.form-activity').slideToggle();
+			});
 		}
 	}
 	
@@ -57,6 +79,7 @@
 	config.doc.removeQuestion();
 	config.doc.addQuestion();
 	config.doc.showSurvey();
+	config.doc.onlySurvey();
 	
 	var studentNumberConf = {
 		department  : "select.department-pick"

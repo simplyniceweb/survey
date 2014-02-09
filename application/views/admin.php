@@ -22,7 +22,7 @@
                     <li class="list-group-item"><i class="glyphicon glyphicon-eye-open"></i> <a href="main">View Activity</a></li>
                     <li class="list-group-item"><i class="glyphicon glyphicon-lock"></i> <a href="ban">Ban user</a></li>
                     <li class="list-group-item"><i class="glyphicon glyphicon-pencil"></i> <a href="admin/edit_user">Edit user</a></li>
-                    <li class="list-group-item"><i class="glyphicon glyphicon-briefcase"></i> <a href="department">Add Department</a></li>
+                    <li class="list-group-item"><i class="glyphicon glyphicon-briefcase"></i> <a href="department">Add Course</a></li>
                     <li class="list-group-item"><i class="glyphicon glyphicon-headphones"></i> <a href="survey">Add School Activity & Survey</a></li>
                     <li class="list-group-item"><i class="glyphicon glyphicon-user"></i> <a href="studentnumber">Add Student Number</a></li>
                 </ul>

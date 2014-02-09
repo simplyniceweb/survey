@@ -32,15 +32,28 @@ class Survey extends CI_Controller {
 		if($mysession['user_level'] == 0) redirect('index');
 		
 		$is_survey = $this->input->post('has_survey');
+		$only_survey = $this->input->post('has_activity');
 
-		// Activity database insertion
-		$activity = array(
-			'activity_category'    => $this->input->post('activity_category'),
-			'activity_title'       => $this->input->post('activity_title'),
-			'activity_description' => $this->input->post('activity_description'),
-			'activity_dated'       => date('Y-m-d H:i:s'),
-			'has_survey'           => $is_survey
-		);
+		if(!$only_survey) {
+			// Activity database insertion
+			$activity = array(
+				'activity_category'    => $this->input->post('activity_category'),
+				'activity_title'       => $this->input->post('activity_title'),
+				'activity_description' => $this->input->post('activity_description'),
+				'activity_dated'       => date('Y-m-d H:i:s'),
+				'only_survey'          => 0,
+				'has_survey'           => $is_survey
+			);
+		} else {
+			$activity = array(
+				'activity_category'    => $this->input->post('activity_category'),
+				'activity_title'       => "- Survey -",
+				'activity_dated'       => date('Y-m-d H:i:s'),
+				'only_survey'          => 1,
+				'has_survey'           => $is_survey
+			);
+		}
+
 		$this->db->insert('activity', $activity);
 
 		// Get the id of the activity
@@ -55,7 +68,7 @@ class Survey extends CI_Controller {
 			"remove_spaces" => 'TRUE',
 			"is_image" => '1'
 		));
-		
+
 		if($this->upload->do_multi_upload("activity_photos")){
 			$activity_img = $this->upload->get_multi_upload_data();
 			foreach($activity_img as $img_array) {
@@ -67,13 +80,12 @@ class Survey extends CI_Controller {
 				$this->db->insert('activity_image', $upload);
 			}
 		}
-		
+
 		// Check if the activity has a survey
 		if($is_survey == 1) {
 			// Survey database insertion
 			$data = array(
 				'user_id'            => $mysession['user_id'],
-				// 'survey_category'    => $this->input->post('activity_category'),
 				'survey_title'       => $this->input->post('survey_title'),
 				'survey_description' => $this->input->post('survey_description'),
 				'survey_dated'       => date('Y-m-d H:i:s'),

@@ -20,13 +20,13 @@
     	<div class="col-md-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Add Department</h3>
+                    <h3 class="panel-title">Add Course</h3>
                 </div>
                 
                 <div class="panel-body">
                     <?php echo form_open('department/department_add'); ?>
                     <div class="form-group">
-                    <label for="student_id_text"><small>Department Name</small></label>
+                    <label for="student_id_text"><small>Course Name</small></label>
                     <input type="text" id="student_id_text" class="form-control" name="department_name">
                     </div>
                     <button type="submit" class="btn btn-success">Store</button>
@@ -39,22 +39,22 @@
     	<div class="col-md-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Edit Department</h3>
+                    <h3 class="panel-title">Edit Course</h3>
                 </div>
                 
                 <div class="panel-body">
                     <?php echo form_open('department/department_edit'); ?>
                     <div class="form-group">
-                        <label for="student_id_edit"><small>Department Name</small></label>
+                        <label for="student_id_edit"><small>Course Name</small></label>
                         <select id="student_id_edit" class="form-control" name="department_name">
-                            <option value="0">Select To Edit Department</option>
+                            <option value="0">Select To Edit Course</option>
                             <?php foreach($department as $did) { ?>
                             <option value="<?php echo $did->department_id; ?>"><?php echo $did->department_name; ?></option>
                             <?php } ?>
                         </select>
                     </div>
                      <div class="form-group">
-                     	<label for="student_id_new"><small>New Department Name</small></label>
+                     	<label for="student_id_new"><small>New Course Name</small></label>
                     	<input type="text" id="student_id_new" name="new_department_name" class="form-control" >
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
@@ -66,15 +66,15 @@
     	<div class="col-md-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Delete Department</h3>
+                    <h3 class="panel-title">Delete Course</h3>
                 </div>
                 
                 <div class="panel-body">
                 <?php echo form_open('department/department_delete'); ?>
                 <div class="form-group">
-                	<label for="student_id_delete"><small>Department Name</small></label>
+                	<label for="student_id_delete"><small>Course Name</small></label>
                     <select id="student_id_delete" class="form-control" name="department_name">
-                        <option value="0">Select To Delete Department</option>
+                        <option value="0">Select To Delete Course</option>
                         <?php foreach($department as $did) { ?>
                         <option value="<?php echo $did->department_id; ?>"><?php echo $did->department_name; ?></option>
                         <?php } ?>

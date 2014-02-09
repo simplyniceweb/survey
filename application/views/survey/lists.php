@@ -19,6 +19,7 @@
 <?php include(__DIR__ . "/../includes/header.php"); ?>
 
 <div class="container">
+	<?php if($act->only_survey == 0) { ?>
 	<div class="row">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -45,7 +46,7 @@
             </ul>
         </div>
     </div>
-    <?php } ?>
+    <?php } } ?>
 
     <div class="row">
     <?php foreach($activity_image as $act_img) { ?>

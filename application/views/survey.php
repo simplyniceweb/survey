@@ -27,6 +27,13 @@
                 </div>
                 
                 <div class="panel-body">
+
+                    <div class="form-group">
+                        <label for="only_survey"><small>Check if you want survey only.</small></label>
+                    	<br>
+                        <input type="checkbox" name="has_activity" id="only_survey" class="only-survey" value="0">
+                    </div>
+
                     <div class="form-group">
                     	<label for="activity_category"><small>Activity Category</small></label>
                         <select name="activity_category" id="activity_category" class="form-control" required="required">
@@ -37,27 +44,29 @@
                             <?php } ?>
                         </select>
                     </div>
-                    
-                    <div class="form-group">
-                    	<label for="activity_title"><small>Activity Title</small></label>
-                    	<input type="text" name="activity_title" id="activity_title" class="form-control" required="required">
-                    </div>
-                    
-                    <div class="form-group">
-                    	<label for="activity_description"><small>Activity Description</small></label>
-                    	<textarea name="activity_description" id="activity_description" class="form-control" required="required"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                    	<label for="activity_photos"><small>Activity Photos</small></label>
-                    	<input type="file" name="activity_photos[]" id="activity_photos" class="form-control" multiple required="required">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="activity_survey"><small>Would you like to add a survey for this activity?</small></label>
-                    	<br>
-                        <input type="checkbox" name="has_survey" id="activity_survey" class="survey-interface" value="0">
-                    </div>
+
+                    <div class="form-activity">
+						<div class="form-group">
+							<label for="activity_title"><small>Activity Title</small></label>
+							<input type="text" name="activity_title" id="activity_title" class="form-control">
+						</div>
+						
+						<div class="form-group">
+							<label for="activity_description"><small>Activity Description</small></label>
+							<textarea name="activity_description" id="activity_description" class="form-control"></textarea>
+						</div>
+						
+						<div class="form-group">
+							<label for="activity_photos"><small>Activity Photos</small></label>
+							<input type="file" name="activity_photos[]" id="activity_photos" class="form-control" multiple>
+						</div>
+						
+						<div class="form-group">
+							<label for="activity_survey"><small>Would you like to add a survey for this activity?</small></label>
+							<br>
+							<input type="checkbox" name="has_survey" id="activity_survey" class="survey-interface" value="0">
+						</div>
+					</div>
                     
                     <button type="submit" class="btn btn-success pull-right">Store</button>
                 </div>
