@@ -1,8 +1,0 @@
-( OPEN XAMPP / WAMP )
-1. http://localhost/phpmyadmin/
-2. Click SQL button at the top of the site
-3. Open survey.sql copy all and paste it to the textbox of SQL
-
-PROBLEM WITH THE DATABASE:
-- Open survey folder
-- survey/application/config/database.php

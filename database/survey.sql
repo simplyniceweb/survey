@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 08, 2014 at 04:48 PM
+-- Generation Time: Feb 09, 2014 at 04:00 PM
 -- Server version: 5.5.35
 -- PHP Version: 5.3.10-1ubuntu3.9
 
@@ -34,9 +34,10 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `activity_title` varchar(255) NOT NULL,
   `activity_description` text NOT NULL,
   `has_survey` int(11) NOT NULL,
+  `only_survey` int(11) NOT NULL,
   `activity_dated` datetime NOT NULL,
   PRIMARY KEY (`activity_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -49,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `activity_image` (
   `image_name` varchar(255) NOT NULL,
   `activity_id` int(11) NOT NULL,
   PRIMARY KEY (`activity_image_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -63,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `choose_log` (
   `survey_id` int(11) NOT NULL,
   `question_id` int(11) NOT NULL,
   PRIMARY KEY (`pick_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -78,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `comment_date` datetime NOT NULL,
   `activity_id` int(11) NOT NULL,
   PRIMARY KEY (`comment_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -121,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `question_choose` int(11) NOT NULL,
   `question_status` int(11) NOT NULL,
   PRIMARY KEY (`question_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `student_id` (
   `id_status` int(11) NOT NULL,
   `department_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`student_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `student_id`
@@ -161,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `survey` (
   `survey_status` int(11) NOT NULL,
   `activity_id` int(11) NOT NULL,
   PRIMARY KEY (`survey_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -184,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_level` int(11) NOT NULL,
   `ban_date` date NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `users`
