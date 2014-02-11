@@ -73,7 +73,7 @@
 		</div>
 	</div>
 	<?php endif; ?>
-  <div class="page-header"><h2>Login Form</h2></div>
+  <div class="page-header"><h2>Web based survey generator</h2></div>
 	<?php echo form_open('index/verify',array('class' => 'form-horizontal')); ?>
     <fieldset>
 

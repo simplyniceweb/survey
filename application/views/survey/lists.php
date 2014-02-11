@@ -9,6 +9,7 @@
     <style>
 		li { list-style-type: none }
 		span.remove-image { position: absolute }
+        #survey-comments { background: #f1f1f1 !important; padding: 8px; }
 		#survey-comments ul li { background: #F1F1F1 }
 		.question-trigger {cursor: pointer }
 		.question-trigger:hover { background:#F1F1F1 }
@@ -133,6 +134,7 @@
     <?php } } ?>
     
 	<div id="survey-comments" class="col-sm-12">
+        <h4>Write your comment or suggestions</h4>
 		<input type="text" data-activity-id="<?php echo $act->activity_id; ?>" class="form-control comment-bar" placeholder="Write your comment here."/>
 		<br>
         <ul class="list-group">

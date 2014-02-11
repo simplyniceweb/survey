@@ -6,6 +6,8 @@
 	<title>-::Web Based Generator::<?php echo $title; ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
     <style>
+        .user-info p { padding: 3px;}
+        .user-img { width: 300px; height: 200px;}
 		.mainpage { margin-top: 150px; }
 		.mainpage .badge { margin-left: 20px }
 		.activity-list { margin-top: -4px; }
@@ -17,7 +19,15 @@
 
 <div class="container mainpage">
     <div class="row">
-        <div class="col-sm-6 col-md-offset-3">
+        <div class="col-sm-6 user-info">
+            <img src="..." alt="..." class="user-img img-thumbnail">
+            <br>
+            <p>My name</p>
+            <p>Birthday</p>
+            <p>Email Address</p>
+            <p>Purok 9, Brgy. Aguisan, Himamaylan City, Negros Occidental</p>
+        </div>
+        <div class="col-sm-6">
             <ul class="nav nav-pills nav-justified">
             <?php if($session['user_level'] == 99) { ?>
                 <select id="department_id" class="form-control" name="department_id">

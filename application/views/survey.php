@@ -86,7 +86,7 @@
                     </div>
                     
                     <div class="form-group">
-                    	<label for="survey_description"><small>Survey Description</small></label>
+                    	<label for="survey_description"><small>Survey Question</small></label>
                     	<textarea name="survey_description" id="survey_description" class="form-control"></textarea>
                     </div>
                     
