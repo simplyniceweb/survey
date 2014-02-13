@@ -1,7 +1,7 @@
 <?php if($activity): ?>
 <?php foreach($activity as $row ) { ?>
 <li class="list-group-item">
-<a href="activity/<?php echo $row->activity_id; ?>">
+<a href="activity/<?php echo $row->act_id; ?>">
 <?php
 if($row->only_survey == 0) {
 	echo ucfirst(substr($row->activity_title, 0, 40));

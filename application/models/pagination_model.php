@@ -9,9 +9,9 @@ class Pagination_model extends CI_Controller {
 
 	public function get_list( $category, $start, $max )
 	{
-		$this->db->select('*');
+		$this->db->select('*, activity.activity_id as act_id');
 		$this->db->from('activity');
-		$this->db->join('survey', 'survey.activity_id = activity.activity_id', 'inner');
+		$this->db->join('survey', 'survey.activity_id = activity.activity_id', 'left');
 		$this->db->where('activity.activity_category', $category);
 		$query = $this->db->get();
 		//var_dump($query->result()); return false;
