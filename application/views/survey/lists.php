@@ -38,8 +38,7 @@
     <div class="row">
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              Edit Activity
-              <span class="caret"></span>
+              Actions <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
               <li><a href="activity/activity_edit/<?php echo $act->activity_id; ?>">Edit</a></li>
@@ -122,10 +121,12 @@
     <div class="row">
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              Delete Survey
-              <span class="caret"></span>
+              Actions <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
+              <?php if($act->only_survey == 1) { ?>
+              <li><a href="activity/activity_edit/<?php echo $act->activity_id; ?>">Edit</a></li>
+              <?php } ?>
               <li class="delete-survey" data-survey-id="<?php echo $row->survey_id; ?>"><a href="javascript: void(0);">Delete</a></li>
             </ul>
         </div>

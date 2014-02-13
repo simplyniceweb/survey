@@ -34,7 +34,7 @@
                             <?php } ?>
                         </select>
                     </div>
-                    
+                    <?php if($act->only_survey == 0) { ?>
                     <div class="form-group">
                     	<label for="activity_title"><small>Activity Title</small></label>
                     	<input type="text" name="activity_title" id="activity_title" class="form-control" value="<?php echo $act->activity_title; ?>" required="required">
@@ -49,7 +49,10 @@
                     	<label for="activity_photos"><small>Activity Photos</small></label>
                     	<input type="file" name="activity_photos[]" id="activity_photos" class="form-control" multiple>
                     </div>
-
+                    <?php } ?>
+                    <?php if($act->only_survey == 1) { ?>
+                        <input type="hidden" name="has_activity" value="1" checked />
+                    <?php } ?>
                     <button type="submit" class="btn btn-success pull-right">Update</button>
                 </div>
              </div>

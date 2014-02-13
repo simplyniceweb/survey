@@ -150,15 +150,24 @@ class Survey extends CI_Controller {
 		} else {
 			redirect('activity/activity_edit/'.$id.'/?edit=false');
 		}
+		$has_activity = $this->input->post("has_activity");
+		if($has_activity == 0) {
+				$activity = array(
+					'activity_category'    => $this->input->post('activity_category'),
+					'activity_title'       => $this->input->post('activity_title'),
+					'activity_description' => $this->input->post('activity_description')
+				);
 
-		$activity = array(
-			'activity_category'    => $this->input->post('activity_category'),
-			'activity_title'       => $this->input->post('activity_title'),
-			'activity_description' => $this->input->post('activity_description')
-		);
+				$this->db->where('activity_id', $id);
+				$this->db->update('activity', $activity);
+		} else {
+				$activity = array(
+					'activity_category'    => $this->input->post('activity_category')
+				);
 
-		$this->db->where('activity_id', $id);
-		$this->db->update('activity', $activity);
+				$this->db->where('activity_id', $id);
+				$this->db->update('activity', $activity);
+		}
 		
 		$survey = array(
 			'survey_title'       => $this->input->post('survey_title'),
@@ -167,7 +176,7 @@ class Survey extends CI_Controller {
 		
 		$this->db->where('activity_id', $id);
 		$this->db->update('survey', $survey);
-		
+
 		// Image configuration, upload and database insertion
 		$this->upload->initialize(array(
 			"upload_path" => "assets/activity/",
