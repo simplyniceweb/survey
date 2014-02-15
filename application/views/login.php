@@ -84,7 +84,7 @@
       <div class="form-group">
         <label class="col-md-1 control-label" for="username"></label>  
         <div class="col-md-12">
-          <input id="username" name="user_email" type="text" required="required" placeholder="Email Address" class="form-control input-md">
+          <input id="username" name="user_email" type="text" required="required" placeholder="Email Address" class="form-control input-md" autofocus>
         </div>
       </div>
 

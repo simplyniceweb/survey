@@ -99,7 +99,7 @@
 
 			<div class="list-group-item">
 				<label><small>Username</small></label>
-				<input type="text" name="user_name" class="form-control" required="required" placeholder="Full Name">
+				<input type="text" name="user_name" class="form-control" required="required" placeholder="Full Name" autofocus>
 			</div>
 			
 			<div class="list-group-item">
