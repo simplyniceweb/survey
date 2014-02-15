@@ -62,13 +62,9 @@ class Ban extends CI_Controller {
 		if($action == 1) {
 			$today = date("Y-m-d");
 			if($unban_date < $today) {
-				$less = "less";
-				echo $less;
-				return $less;
+				redirect("ban?date=less");
 			} else if($today == $unban_date) {
-				$equal = "equal";
-				echo $equal;
-				return $equal;
+				redirect("ban?date=equal");
 			}
 			$data['ban_date'] = $unban_date;
 		} else {
@@ -80,7 +76,11 @@ class Ban extends CI_Controller {
 		$this->db->where('user_id', $user_id);
 		$this->db->update('users', $data);
 		
-		return TRUE;
+		if($action == 1) {
+			redirect("ban?action=1");
+		} else {
+			redirect("ban?action=0");
+		}
 	}
 }
 

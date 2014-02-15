@@ -154,11 +154,6 @@
 						
 						$(".design").select2("val", "");
 						$('select#student_id'+action).html(response);
-						if(action == 1) {
-							alert('Banned success!');
-						} else {
-							alert('Unbanned success!');
-						}
 					}, error: function () {
 						console.log('Something went wrong..');
 					}
