@@ -63,7 +63,7 @@ class Studentnumber extends CI_Controller {
 			$this->db->insert('student_id', $data);
 		}
 		
-		redirect('studentnumber');
+		redirect('studentnumber?add=true');
 	}
 	
 	public function student_no_edit() {

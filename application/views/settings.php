@@ -44,7 +44,7 @@ $civil_status = array(
                      <div class="form-group">
                      	<?php if($info->profile_picture != ""): ?>
                         <input type="hidden" name="original_photo" value="<?php echo $info->profile_picture; ?>">
-                     	<img src="assets/images/<?php echo $info->profile_picture; ?>" class="img-circle" width="100" height="100"/>
+                     	<img src="assets/images/<?php echo $info->profile_picture; ?>" class="img-square" width="100" height="100"/>
                         <br>
                         <?php endif; ?>
                      	<label for="student_profile_picture"><small>Profile Picture</small></label>

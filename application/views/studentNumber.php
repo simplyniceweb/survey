@@ -20,7 +20,9 @@
     <div class="alert alert-danger">The student number that you added is already in the database.</div>
     <?php } else if(isset($_GET['unique']) && $_GET['unique'] == "false") { ?>
     <div class="alert alert-danger">Please enter a unique Student number.</div>
-	<?php } ?>
+	<?php } else if(isset($_GET['add']) && $_GET['add'] == "true") { ?>
+    <div class="alert alert-success">Student number has been added succesfully</div>
+    <?php } ?>
 
     	<div class="col-md-4">
             <div class="panel panel-primary">

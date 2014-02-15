@@ -218,14 +218,7 @@ class Survey extends CI_Controller {
 		}
 		
 		$this->db->delete('survey', array('survey_id' => $id));
-		
-		$activity = array(
-			'has_survey'    => 0,
-		);
-
-		$this->db->where('activity_id', $activity_id);
-		$this->db->update('activity', $activity);
-		
+		$this->db->delete('activity', array('activity_id' => $activity_id));
 		redirect('');
 	}
 	

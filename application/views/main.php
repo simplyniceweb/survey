@@ -6,7 +6,8 @@
 	<title>-::Web Based Generator::<?php echo $title; ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css"/>
     <style>
-        .user-info p { padding: 3px;}
+        .user-info { background: #f1f1f1; width: 300px; padding: 5px; margin-left: 150px; border-radius: 3px; }
+        .user-info p { margin-left: 5px;}
         .user-img { width: 300px; height: 200px;}
 		.mainpage { margin-top: 150px; }
 		.mainpage .badge { margin-left: 20px }
@@ -21,20 +22,28 @@
         </div>
 <div class="container mainpage">
     <div class="row">
-        <div class="col-sm-6 user-info">
-            <img src="..." alt="..." class="user-img img-thumbnail">
+        <div class="col-sm-6">
+            <div class=" user-info">
+            <?php foreach($user as $user) { ?>
+            <?php if($user->profile_picture != "") { ?>
+            <img src="assets/images/<?php echo $user->profile_picture; ?>" alt="..." class="user-img img-thumbnail">
+            <?php } else { ?>
+            <img src="assets/images/default.jpg" alt="..." class="user-img img-thumbnail">
+            <?php } ?>
             <br>
-            <p>My name</p>
-            <p>Birthday</p>
-            <p>Email Address</p>
-            <p>Purok 9, Brgy. Aguisan, Himamaylan City, Negros Occidental</p>
+            <p><?php echo $user->user_name; ?></p>
+            <p><?php echo date("M. j, Y", strtotime($user->user_birthday)); ?></p>
+            <p><?php echo $user->user_email; ?></p>
+            <p><?php echo $user->student_address; ?></p>
+            <?php } ?>
+            </div>
         </div>
         <div class="col-sm-6">
             <ul class="nav nav-pills nav-justified">
             <?php if($session['user_level'] == 99) { ?>
                 <select id="department_id" class="form-control" name="department_id">
                     <option value="">Choose Category</option>
-                    <option value="0">General</option>
+                    <option value="0" selected>General</option>
                     <?php foreach($department as $did) { ?>
                     <option value="<?php echo $did->department_id; ?>"><?php echo $did->department_name; ?></option>
                     <?php } ?>

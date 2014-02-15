@@ -11,8 +11,12 @@ class Main extends CI_Controller {
 	public function index() {
 		$mysession = $this->session->userdata('logged');
 		if(!$mysession) redirect('index');
-		// echo $mysession['department']; return false;
-		
+		$user_id = $mysession['user_id'];
+
+		$this->db->from('users');
+		$this->db->where('user_id', $user_id);
+		$user = $this->db->get();
+
 		$this->db->from('department');
 		$this->db->where('department_status', 0);
 		if($mysession['user_level'] != 99) {
@@ -48,6 +52,7 @@ class Main extends CI_Controller {
 			'title'         => 'Homepage',
 			'session'       => $mysession,
 			'activity'      => $getter,
+			'user'          => $user->result(),
 			'general'       => $count_gen->num_rows(),
 			'counter'       => $count_dept->num_rows(),
 			'department'    => $department->result(),

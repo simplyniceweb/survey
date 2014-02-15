@@ -13,6 +13,7 @@ class Pagination_model extends CI_Controller {
 		$this->db->from('activity');
 		$this->db->join('survey', 'survey.activity_id = activity.activity_id', 'left');
 		$this->db->where('activity.activity_category', $category);
+		//$this->db->where();
 		$query = $this->db->get();
 		//var_dump($query->result()); return false;
 		//$this->db->where('activity_category', $category);

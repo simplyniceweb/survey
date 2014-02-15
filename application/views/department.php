@@ -12,9 +12,9 @@
 	<div class="row">
     
 	<?php if(isset($_GET['exist']) && $_GET['exist'] == "true") { ?>
-    <div class="alert alert-danger">The Department name that you added is already in the database.</div>
-    <?php } else if(isset($_GET['unique']) && $_GET['unique'] == "false") { ?>
-    <div class="alert alert-danger">Please enter a unique department name.</div>
+    <div class="alert alert-danger">The Course that you added is already in the database.</div>
+    <?php } else if(isset($_GET['add']) && $_GET['add'] == "true") { ?>
+    <div class="alert alert-success">Course has been added successfully!</div>
 	<?php } ?>
 
     	<div class="col-md-4">

@@ -57,7 +57,7 @@ class Department extends CI_Controller {
 			$this->db->insert('department', $data);
 		}
 		
-		redirect('department');
+		redirect('department?add=true');
 	}
 	
 	public function department_edit() {
