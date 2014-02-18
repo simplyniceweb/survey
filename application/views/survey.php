@@ -98,6 +98,11 @@
                       	<a href="javascript: void(0);">Remove</a>
                       </span>
                     </div>
+
+                    <div class="form-group">
+                        <label for="end_date"><small>Survey End Date</small></label>
+                        <input type="date" id="end_date" class="form-control"/>
+                    </div>
              	</div>
              </div>
         </div>
