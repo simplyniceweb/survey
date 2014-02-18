@@ -114,7 +114,7 @@
 
 			<div class="list-group-item">
 				<label><small>Birthday</small></label>
-				<input type="text" name="user_birthday" class="datepicker form-control" data-date-format="yyyy-mm-dd" required="required" placeholder="Birthday">
+				<input type="date" name="user_birthday" class="form-control" required="required" placeholder="Birthday">
 			</div>
 			
 			<div class="list-group-item">

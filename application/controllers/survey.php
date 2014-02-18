@@ -89,7 +89,8 @@ class Survey extends CI_Controller {
 				'survey_title'       => $this->input->post('survey_title'),
 				'survey_description' => $this->input->post('survey_description'),
 				'survey_dated'       => date('Y-m-d H:i:s'),
-				'activity_id'        => $activity_id
+				'activity_id'        => $activity_id,
+				'survey_end'         => $this->input->post('survey_end')
 			);
 			$this->db->insert('survey', $data);
 			
@@ -171,7 +172,8 @@ class Survey extends CI_Controller {
 		
 		$survey = array(
 			'survey_title'       => $this->input->post('survey_title'),
-			'survey_description' => $this->input->post('survey_description')
+			'survey_description' => $this->input->post('survey_description'),
+			'survey_end'         => $this->input->post('survey_end')
 		);
 		
 		$this->db->where('activity_id', $id);

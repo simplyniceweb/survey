@@ -22,6 +22,10 @@
     <div class="alert alert-danger">Please enter a unique Student number.</div>
 	<?php } else if(isset($_GET['add']) && $_GET['add'] == "true") { ?>
     <div class="alert alert-success">Student number has been added succesfully</div>
+	<?php } else if(isset($_GET['edit']) && $_GET['edit'] == "true") { ?>
+    <div class="alert alert-success">Student number has been updated succesfully</div>
+	<?php } else if(isset($_GET['delete']) && $_GET['delete'] == "true") { ?>
+    <div class="alert alert-success">Student number has been deleted succesfully</div>
     <?php } ?>
 
     	<div class="col-md-4">
@@ -34,7 +38,7 @@
                     <?php echo form_open('studentnumber/student_no_add'); ?>
                     <div class="form-group">
                         <label for="department_id"><small>Department</small></label>
-                        <select id="department_id" class="form-control design" name="department_id" required="required">
+                        <select id="department_id" class="form-control design" name="department_id" required>
                             <option value="">Choose Department</option>
                             <?php foreach($department as $did) { ?>
                             <option value="<?php echo $did->department_id; ?>"><?php echo $did->department_name; ?></option>
@@ -62,7 +66,7 @@
                     <?php echo form_open('studentnumber/student_no_edit'); ?>
                     <div class="form-group">
                         <label for="department_id"><small>Department</small></label>
-                        <select id="department_id" class="department-pick form-control design" name="department_id" required="required">
+                        <select id="department_id" class="department-pick form-control design" name="department_id" required>
                             <option value="">Choose Department</option>
                             <?php foreach($department as $did) { ?>
                             <option value="<?php echo $did->department_id; ?>"><?php echo $did->department_name; ?></option>

@@ -79,7 +79,7 @@ class Studentnumber extends CI_Controller {
 		$this->db->where('unique', $unique);
 		$this->db->update('student_id', $data);
 		
-		redirect('studentnumber');
+		redirect('studentnumber?edit=true');
 	}
 
 	public function student_no_delete() {
@@ -95,7 +95,7 @@ class Studentnumber extends CI_Controller {
 		$this->db->where('student_id', $student_id);
 		$this->db->update('student_id', $delete);
 		
-		redirect('studentnumber');
+		redirect('studentnumber?delete=true');
 	}
 	
 	public function get_student_no() {

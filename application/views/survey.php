@@ -36,7 +36,7 @@
 
                     <div class="form-group">
                     	<label for="activity_category"><small>Activity Category</small></label>
-                        <select name="activity_category" id="activity_category" class="form-control" required="required">
+                        <select name="activity_category" id="activity_category" class="form-control" required>
                             <option value="">Select Category</option>
                             <option value="0">General</option>
                             <?php foreach($department as $did) { ?>
@@ -100,8 +100,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="end_date"><small>Survey End Date</small></label>
-                        <input type="date" id="end_date" class="form-control"/>
+                        <label for="survey_end"><small>Survey End Date</small></label>
+                        <input type="date" id="survey_end" name="survey_end" value="" class="form-control"/>
                     </div>
              	</div>
              </div>

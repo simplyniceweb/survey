@@ -15,6 +15,10 @@
     <div class="alert alert-danger">The Course that you added is already in the database.</div>
     <?php } else if(isset($_GET['add']) && $_GET['add'] == "true") { ?>
     <div class="alert alert-success">Course has been added successfully!</div>
+    <?php } else if(isset($_GET['edit']) && $_GET['edit'] == "true") { ?>
+    <div class="alert alert-success">Course has been updated successfully!</div>
+    <?php } else if(isset($_GET['delete']) && $_GET['delete'] == "true") { ?>
+    <div class="alert alert-success">Course has been deleted successfully!</div>
 	<?php } ?>
 
     	<div class="col-md-4">

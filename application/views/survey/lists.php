@@ -101,8 +101,13 @@
 				?>
                 <?php if($session['user_level'] == 99) { ?>
                     <li class="list-group-item question-trigger">
+                    	<?php
+						if($row->survey_end < date("Y-m-d")): ?>
                         <input type="radio" name="choice" class="question-pick" <?php if(!is_null($voted)) { if($vote->question_id == $query->question_id): echo 'id="the_choice" data-checked="1" checked="checked"'; else: 'data-checked="0"'; endif; } ?> data-activity-id="<?php echo $act->activity_id; ?>" data-survey-id="<?php echo $row->survey_id; ?>" data-count="<?php echo $counter++; ?>" data-question-id="<?php echo $query->question_id; ?>">
-                        <input type="text" class="edit-answer" data-entry="<?php echo $query->question_id; ?>" value="<?php echo $query->survey_question; ?>">
+                        <?php endif; ?>
+                        <!--
+                        <input type="text" class="edit-answer" data-entry="<?php echo $query->question_id; ?>" value="<?php echo $query->survey_question; ?>"> -->
+                        <?php echo $query->survey_question; ?>
                         <span class="pull-right"><?php echo $query->question_choose; ?> Votes <small class="badge"><?php if($sum->question_choose): echo round($percent,0); else: echo "0"; endif; ?>%</small></span>
                     </li>
                 <?php } else { ?>

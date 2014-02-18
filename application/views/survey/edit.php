@@ -26,7 +26,7 @@
                 <div class="panel-body">
                     <div class="form-group">
                     	<label for="activity_category"><small>Activity Category</small></label>
-                        <select name="activity_category" id="activity_category" class="form-control" required="required">
+                        <select name="activity_category" id="activity_category" class="form-control" required>
                             <option value="">Select Category</option>
                             <option <?php if($act->activity_category == 0):?> selected="selected"<?php endif; ?>value="0">General</option>
                             <?php foreach($department as $did) { ?>
@@ -42,7 +42,7 @@
                     
                     <div class="form-group">
                     	<label for="activity_description"><small>Activity Description</small></label>
-                    	<textarea name="activity_description" id="activity_description" class="form-control" required="required"><?php echo $act->activity_description; ?></textarea>
+                    	<textarea name="activity_description" id="activity_description" class="form-control" required><?php echo $act->activity_description; ?></textarea>
                     </div>
 
                     <div class="form-group">
@@ -74,6 +74,11 @@
                     <div class="form-group">
                     	<label for="survey_description"><small>Survey Question</small></label>
                     	<textarea name="survey_description" id="survey_description" class="form-control"><?php echo $srv->survey_description; ?></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="survey_end"><small>Survey End Date</small></label>
+                        <input type="date" id="survey_end" name="survey_end" value="<?php if($srv->survey_end != "0000-00-00") echo date("Y-m-d", strtotime($srv->survey_end)); ?>" class="form-control"/>
                     </div>
              	</div>
              </div>

@@ -82,7 +82,7 @@ class Department extends CI_Controller {
 		$this->db->where('department_id', $old);
 		$this->db->update('department', $data);
 		
-		redirect('department');
+		redirect('department?edit=true');
 	}
 
 	public function department_delete() {
@@ -98,7 +98,7 @@ class Department extends CI_Controller {
 		$this->db->where('department_id', $old);
 		$this->db->update('department', $delete);
 		
-		redirect('department');
+		redirect('department?delete=true');
 	}
 }
 

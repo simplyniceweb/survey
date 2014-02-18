@@ -12,11 +12,12 @@
 	var answerFunc = {
 		focusFunc : function() {
 			return this.delegate(answerConf.trigger, 'click', function(){
-				$(this).find('input[type=text]').focus();
+				// $(this).find('input[type=text]').focus();
 			})
 		},
 		editFunc : function() {
 			return this.delegate(answerConf.edit, "keyup", function(e){
+				return false;
 				if(e.keyCode != 13) return false;
 
 				me = $(this),
