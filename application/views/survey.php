@@ -18,7 +18,7 @@
 	<?php if(isset($_GET['add']) && $_GET['add'] == 'true'): ?>
         <div class="alert alert-success">Survey has been added successfuly!</div>
     <?php endif; ?>
-    <?php echo form_open_multipart('survey/add'); ?>
+    <?php echo form_open_multipart('survey/add', array("class" => "store-activity")); ?>
     	<div class="col-sm-4">
             <div class="panel panel-primary">
             
@@ -68,7 +68,7 @@
 						</div>
 					</div>
                     
-                    <button type="submit" class="btn btn-success pull-right">Store</button>
+                    <button type="submit" class="btn btn-success pull-right storage">Store</button>
                 </div>
              </div>
         </div>
@@ -89,7 +89,10 @@
                     	<label for="survey_description"><small>Survey Question</small></label>
                     	<textarea name="survey_description" id="survey_description" class="form-control"></textarea>
                     </div>
-                    
+                    <div class="form-group">
+                        <label for="survey_end"><small>Survey End Date</small></label>
+                        <input type="date" id="survey_end" name="survey_end" value="" class="form-control"/>
+                    </div>
                     <div class="form-group"><button type="button" class="btn btn-success add-question">Add Answer</button></div>
                     
                     <div class="form-group input-group this-remove-1">
@@ -97,11 +100,6 @@
                       <span data-remove="1" class="input-group-addon remove-question">
                       	<a href="javascript: void(0);">Remove</a>
                       </span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="survey_end"><small>Survey End Date</small></label>
-                        <input type="date" id="survey_end" name="survey_end" value="" class="form-control"/>
                     </div>
              	</div>
              </div>

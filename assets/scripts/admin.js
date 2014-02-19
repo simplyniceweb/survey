@@ -17,6 +17,8 @@
 		only    : '.only-survey',
 		status  : 0,
 		status_2: 0,
+		store_activity: '.store-activity',
+		store_activity2: '.storage'
 	}
 	
 	var questionFunc = {
@@ -72,10 +74,32 @@
 
 				$('div.form-activity').slideToggle();
 			});
-		}
+		},
+		store_activity : function() {
+			return this.delegate(questionConf.store_activity, 'submit', function(e){
+				var survey_title = $("input[name=survey_title]").val();
+				if(questionConf.status == 1 && survey_title == "") {
+					e.stopPropagation();
+					e.preventDefault();
+					alert("Please enter survey title.");
+				}
+			});
+		},
+		store_activity2 : function() {
+			return this.delegate(questionConf.store_activity2, 'click', function(e){
+				var survey_title = $("input[name=survey_title]").val();
+				if(questionConf.status == 1 && survey_title == "") {
+					e.stopPropagation();
+					e.preventDefault();
+					alert("Please enter survey title.");
+				}
+			});
+		},
 	}
 	
 	$.extend(config.doc, questionFunc);
+	config.doc.store_activity2();
+	config.doc.store_activity();
 	config.doc.removeQuestion();
 	config.doc.addQuestion();
 	config.doc.showSurvey();

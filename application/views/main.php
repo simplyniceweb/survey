@@ -18,7 +18,7 @@
 <body>
 <?php require_once('includes/header.php'); ?>
         <div class="col-md-6 col-md-offset-3">
-            <h1>Welcome to Web based generator!</h1>
+            <h1 style="color:#FFF">Welcome to Web based generator</h1>
         </div>
 <div class="container mainpage">
     <div class="row">

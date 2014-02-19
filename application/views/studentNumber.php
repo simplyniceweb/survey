@@ -37,9 +37,9 @@
                 <div class="panel-body">
                     <?php echo form_open('studentnumber/student_no_add'); ?>
                     <div class="form-group">
-                        <label for="department_id"><small>Department</small></label>
+                        <label for="department_id"><small>Course</small></label>
                         <select id="department_id" class="form-control design" name="department_id" required>
-                            <option value="">Choose Department</option>
+                            <option value="">Choose Course</option>
                             <?php foreach($department as $did) { ?>
                             <option value="<?php echo $did->department_id; ?>"><?php echo $did->department_name; ?></option>
                             <?php } ?>
@@ -65,9 +65,9 @@
                 <div class="panel-body">
                     <?php echo form_open('studentnumber/student_no_edit'); ?>
                     <div class="form-group">
-                        <label for="department_id"><small>Department</small></label>
+                        <label for="department_id"><small>Course</small></label>
                         <select id="department_id" class="department-pick form-control design" name="department_id" required>
-                            <option value="">Choose Department</option>
+                            <option value="">Choose Course</option>
                             <?php foreach($department as $did) { ?>
                             <option value="<?php echo $did->department_id; ?>"><?php echo $did->department_name; ?></option>
                             <?php } ?>

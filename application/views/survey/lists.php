@@ -84,7 +84,7 @@
         ?>
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title"><?php echo ucfirst($row->survey_title); ?></h3>
+                <h3 class="panel-title"><?php echo ucfirst($row->survey_title); ?> <span class="pull-right">You can vote until <?php echo date("Y-m-d", strtotime($row->survey_end)); ?></span></h3>
             </div>
             <div class="panel-body" style="word-wrap: break-word"><?php echo ucfirst(nl2br(htmlspecialchars($row->survey_description))); ?></div>
         <?php } ?>
@@ -102,7 +102,10 @@
                 <?php if($session['user_level'] == 99) { ?>
                     <li class="list-group-item question-trigger">
                     	<?php
-						if($row->survey_end < date("Y-m-d")): ?>
+						$now = new \DateTime(date("Y-m-d"));
+						$end = new \DateTime($row->survey_end);
+						if($end > $now): 
+						?>
                         <input type="radio" name="choice" class="question-pick" <?php if(!is_null($voted)) { if($vote->question_id == $query->question_id): echo 'id="the_choice" data-checked="1" checked="checked"'; else: 'data-checked="0"'; endif; } ?> data-activity-id="<?php echo $act->activity_id; ?>" data-survey-id="<?php echo $row->survey_id; ?>" data-count="<?php echo $counter++; ?>" data-question-id="<?php echo $query->question_id; ?>">
                         <?php endif; ?>
                         <!--
@@ -130,7 +133,7 @@
             </button>
             <ul class="dropdown-menu">
               <?php if($act->only_survey == 1) { ?>
-              <li><a href="activity/activity_edit/<?php echo $act->activity_id; ?>">Edit</a></li>
+              <!-- <li><a href="activity/activity_edit/<?php echo $act->activity_id; ?>">Edit</a></li> -->
               <?php } ?>
               <li class="delete-survey" data-survey-id="<?php echo $row->survey_id; ?>"><a href="javascript: void(0);">Delete</a></li>
             </ul>

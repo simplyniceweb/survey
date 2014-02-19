@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/survey/';
+$config['base_url']	= 'http://192.168.254.105/survey/';
 
 /*
 |--------------------------------------------------------------------------
