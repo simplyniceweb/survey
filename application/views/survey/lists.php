@@ -84,7 +84,7 @@
         ?>
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title"><?php echo ucfirst($row->survey_title); ?> <span class="pull-right">You can vote until <?php echo date("Y-m-d", strtotime($row->survey_end)); ?></span></h3>
+                <h3 class="panel-title"><?php echo ucfirst($row->survey_title); ?> <?php if($row->survey_end != "0000-00-00") { ?><span class="pull-right">You can vote until <?php echo date("Y-m-d", strtotime($row->survey_end)); } ?></span></h3>
             </div>
             <div class="panel-body" style="word-wrap: break-word"><?php echo ucfirst(nl2br(htmlspecialchars($row->survey_description))); ?></div>
         <?php } ?>
@@ -104,7 +104,7 @@
                     	<?php
 						$now = new \DateTime(date("Y-m-d"));
 						$end = new \DateTime($row->survey_end);
-						if($end > $now): 
+						if($end > $now || $row->survey_end == "0000-00-00"): 
 						?>
                         <input type="radio" name="choice" class="question-pick" <?php if(!is_null($voted)) { if($vote->question_id == $query->question_id): echo 'id="the_choice" data-checked="1" checked="checked"'; else: 'data-checked="0"'; endif; } ?> data-activity-id="<?php echo $act->activity_id; ?>" data-survey-id="<?php echo $row->survey_id; ?>" data-count="<?php echo $counter++; ?>" data-question-id="<?php echo $query->question_id; ?>">
                         <?php endif; ?>
