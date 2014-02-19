@@ -96,6 +96,10 @@
 		<?php endif; ?>
 		<?php echo form_open('index/process',array('class' => 'form-horizontal')); ?>
 			<legend><h3>REGISTER</h3> <a class="col-md-12" href="">Have an account? Sign In!</a></legend>
+			<div class="list-group-item">
+				<label><small>Student Number</small></label>
+				<input type="text" name="user_std_id" class="form-control" required="required" placeholder="Student Number">
+			</div>
 
 			<div class="list-group-item">
 				<label><small>Username</small></label>
@@ -115,11 +119,6 @@
 			<div class="list-group-item">
 				<label><small>Birthday</small></label>
 				<input type="date" name="user_birthday" class="form-control" required="required" placeholder="Birthday">
-			</div>
-			
-			<div class="list-group-item">
-				<label><small>Student Number</small></label>
-				<input type="text" name="user_std_id" class="form-control" required="required" placeholder="Student Number">
 			</div>
 
 			<div class="list-group-item">
