@@ -95,7 +95,11 @@
 		</div>
 		<?php endif; ?>
 		<?php echo form_open('index/process',array('class' => 'form-horizontal')); ?>
-			<legend><h3>REGISTER</h3> <a class="col-md-12" href="">Have an account? Sign In!</a></legend>
+			<legend>
+            <h3>Exclusive for Binalbagan Catholic College only.</h3>
+            <h3>REGISTER</h3> <a class="col-md-12" href="">Have an account? Sign In!</a>
+            </legend>
+            
 			<div class="list-group-item">
 				<label><small>Student Number</small></label>
 				<input type="text" name="user_std_id" class="form-control" required="required" placeholder="Student Number">
