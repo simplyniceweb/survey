@@ -106,6 +106,11 @@ class Index extends CI_Controller {
 			'user_birthday' => $this->input->post('user_birthday'),
 			'user_std_id'   => $this->input->post('user_std_id'),
 		);
+
+		$bday = new DateTime($data['user_birthday']);
+		$today = new DateTime(date("Y-m-d"));
+		$diff = $today->diff($bday);
+		$data['user_age'] = $diff->y;
 		
 		$this->db->from('student_id');
 		$this->db->where('unique', $data['user_std_id']);
@@ -175,6 +180,11 @@ class Index extends CI_Controller {
 			if(!empty($password)) {
 				$data['user_password'] = sha1($password);
 			}
+			
+			$bday = new DateTime($data['user_birthday']);
+			$today = new DateTime(date("Y-m-d"));
+			$diff = $today->diff($bday);
+			$data['user_age'] = $diff->y;
 			
 			$this->db->where('user_id', $user_id);
 			$this->db->update('users', $data);

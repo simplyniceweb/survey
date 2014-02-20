@@ -52,7 +52,7 @@ $civil_status = array(
                     </div>
                 
                      <div class="form-group">
-                     	<label for="student_username"><small>Student Username</small></label>
+                     	<label for="student_username"><small>Student Full Name</small></label>
                     	<input type="text" id="student_username" name="student_username" value="<?php echo $info->user_name; ?>" class="form-control">
                     </div>
                     
@@ -85,7 +85,12 @@ $civil_status = array(
                      <div class="form-group">
                      	<label for="student_birthday"><small>Student Birthday</small></label>
                     	<input type="date" id="student_birthday" name="student_birthday" value="<?php echo date('Y-m-d', strtotime($info->user_birthday)); ?>" class="form-control">
+
+                     <div class="form-group">
+                     	<label for="student_age"><small>Student Age</small></label>
+                    	<input type="text" id="student_age" name="student_age" readonly value="<?php if(($info->user_age)) echo $info->user_age; ?>" class="form-control">
                     </div>
+
                     <?php //if($action == 1) { ?>
                      <div class="form-group">
                      	<label for="student_password"><small>Student Password</small></label>
