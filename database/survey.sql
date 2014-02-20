@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2014 at 04:07 PM
+-- Generation Time: Feb 20, 2014 at 03:46 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `student_id` (
   `id_status` int(11) NOT NULL,
   `department_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`student_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `student_id`
@@ -148,10 +148,7 @@ CREATE TABLE IF NOT EXISTS `student_id` (
 INSERT INTO `student_id` (`student_id`, `unique`, `id_status`, `department_id`) VALUES
 (1, '1', 0, 0),
 (2, '2', 0, 3),
-(5, '3', 0, 10),
-(6, '252525', 1, 12),
-(7, '125125125125125125', 1, 12),
-(8, '25', 1, 10);
+(5, '3', 0, 10);
 
 -- --------------------------------------------------------
 
@@ -184,6 +181,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_email` varchar(255) NOT NULL,
   `user_password` varchar(255) NOT NULL,
   `user_birthday` datetime NOT NULL,
+  `user_age` int(11) NOT NULL,
   `civil_status` int(11) NOT NULL,
   `student_address` varchar(255) NOT NULL,
   `student_phone_number` varchar(255) NOT NULL,
@@ -192,16 +190,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_level` int(11) NOT NULL,
   `ban_date` date NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `profile_picture`, `user_name`, `user_email`, `user_password`, `user_birthday`, `civil_status`, `student_address`, `student_phone_number`, `user_status`, `user_std_id`, `user_level`, `ban_date`) VALUES
-(1, 'f27101d70de3f8abe8bf980cdaa55405.jpg', 'Glace', 'glace@yahoo.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '2013-11-29 00:00:00', 0, 'Hello world!`', '09055872181', 0, '1', 99, '0000-00-00'),
-(2, '', 'Limson', 'limson@yahoo.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '2013-11-29 00:00:00', 0, 'Hello world!`', '09055872181', 0, '2', 0, '0000-00-00'),
-(3, '', 'Juan Dela Cruz', 'juan@delacruz.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '2013-12-21 00:00:00', 0, '', '', 0, '3', 0, '0000-00-00');
+INSERT INTO `users` (`user_id`, `profile_picture`, `user_name`, `user_email`, `user_password`, `user_birthday`, `user_age`, `civil_status`, `student_address`, `student_phone_number`, `user_status`, `user_std_id`, `user_level`, `ban_date`) VALUES
+(1, 'f27101d70de3f8abe8bf980cdaa55405.jpg', 'Glace', 'glace@yahoo.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '1990-05-01 00:00:00', 23, 0, 'Hello world!`', '09055872181', 0, '1', 99, '0000-00-00'),
+(2, '4c8ac6e80650a81760cb7ffcaa24ccee.jpg', 'Limson', 'limson@yahoo.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '2013-11-29 00:00:00', 0, 0, 'Hello world!`', '09055872181', 0, '2', 0, '0000-00-00'),
+(3, '', 'Juan Dela Cruz', 'juan@delacruz.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '2013-12-21 00:00:00', 0, 0, '', '', 0, '3', 0, '0000-00-00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
