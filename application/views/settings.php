@@ -40,6 +40,9 @@ $civil_status = array(
                         <?php } else if(isset($_GET['update']) && $_GET['update'] == 'false'){ ?>
                         <div class="alert alert-success">Failed to update user information!</div>
                     <?php } ?>
+					<?php if(isset($_GET['email']) && $_GET['email'] == "exist"): ?>
+                        <div class="alert alert-danger">Email does exist!</div>
+                    <?php endif; ?>
                 
                      <div class="form-group">
                      	<?php if($info->profile_picture != ""): ?>

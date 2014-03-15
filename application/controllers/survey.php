@@ -110,8 +110,7 @@ class Survey extends CI_Controller {
 		}
 		redirect('survey?add=true');
 	}
-	
-	
+
 	public function lists() {
 		$mysession = $this->session->userdata('logged');
 		if(!$mysession) redirect('index');
@@ -140,7 +139,7 @@ class Survey extends CI_Controller {
 		
 		$this->load->view('lists', $data);
 	}
-	
+
 	public function edit() {
 		$mysession = $this->session->userdata('logged');
 		if(!$mysession) redirect('index');

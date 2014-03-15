@@ -27,10 +27,16 @@ class Index extends CI_Controller {
 	}
 	
 	public function register() {
+		$data["action"] = 0;
 		$mysession = $this->session->userdata('logged');
-		if($mysession) redirect('main');
 
-		$this->load->view('register');
+		if($mysession && $mysession["user_level"] != 99) {
+			redirect('main');
+		} else {
+			$data["action"] = sha1(1);
+		}
+
+		$this->load->view('register', $data);
 	}
 
 	public function verify() {
@@ -97,7 +103,7 @@ class Index extends CI_Controller {
 	public function process() {
 
 		$mysession = $this->session->userdata('logged');
-		if($mysession) redirect('main');
+		if($mysession && $mysession["user_level"] != 99) redirect('main');
 
 		$data = array(
 			'user_name'     => $this->input->post('user_name'),
@@ -106,11 +112,23 @@ class Index extends CI_Controller {
 			'user_birthday' => $this->input->post('user_birthday'),
 			'user_std_id'   => $this->input->post('user_std_id'),
 		);
+		
+		$action = $this->input->post('action');
+		if(strlen($action) > 0 && sha1(1) == $action) {
+			$data["user_level"] = 99;
+		}
 
 		$bday = new DateTime($data['user_birthday']);
 		$today = new DateTime(date("Y-m-d"));
 		$diff = $today->diff($bday);
 		$data['user_age'] = $diff->y;
+
+		$this->db->where('user_email', $data['user_email']);
+		$check_email = $this->db->get("users");
+		
+		if($check_email->num_rows() > 0) {
+			redirect('index/register/?email=exist');
+		}
 		
 		$this->db->from('student_id');
 		$this->db->where('unique', $data['user_std_id']);
@@ -185,7 +203,18 @@ class Index extends CI_Controller {
 			$today = new DateTime(date("Y-m-d"));
 			$diff = $today->diff($bday);
 			$data['user_age'] = $diff->y;
+
+			$this->db->where('user_email', $data['user_email']);
+			$check_email = $this->db->get("users");
 			
+			if($check_email > 0) {
+				foreach($check_email->result() as $ce) {
+					if($ce->user_id != $user_id) {
+						redirect('settings/?email=exist');
+					}
+				}
+			}
+
 			$this->db->where('user_id', $user_id);
 			$this->db->update('users', $data);
 			

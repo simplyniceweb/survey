@@ -25,6 +25,7 @@
                     <li class="list-group-item"><i class="glyphicon glyphicon-briefcase"></i> <a href="department">Add Course</a></li>
                     <li class="list-group-item"><i class="glyphicon glyphicon-headphones"></i> <a href="survey">Add School Activity & Survey</a></li>
                     <li class="list-group-item"><i class="glyphicon glyphicon-user"></i> <a href="studentnumber">Add Student Number</a></li>
+                    <li class="list-group-item"><i class="glyphicon glyphicon-user"></i> <a href="register">Add Admin</a></li>
                 </ul>
             </div>
         </div>

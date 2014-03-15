@@ -64,6 +64,15 @@
 
 <div id="container">
 	<div class="row">
+		<?php if(isset($_GET['email']) && $_GET['email'] == "exist"): ?>
+		<div class="col-sm-12">
+		<div class="list-group-item">
+			<div class="alert alert-danger">
+				<small>Email does exist!</small>
+			</div>
+		</div>
+		<?php endif; ?>
+
 		<?php if(isset($_GET['std_id']) && $_GET['std_id'] == "invalid"): ?>
 		<div class="col-sm-12">
 		<div class="list-group-item">
@@ -95,6 +104,7 @@
 		</div>
 		<?php endif; ?>
 		<?php echo form_open('index/process',array('class' => 'form-horizontal')); ?>
+        <input type="hidden" name="action" value="<?php echo $action; ?>"/>
 			<legend>
             <h3>Exclusive for Binalbagan Catholic College only.</h3>
             <h3>REGISTER</h3> <a class="col-md-12" href="">Have an account? Sign In!</a>
@@ -102,12 +112,12 @@
             
 			<div class="list-group-item">
 				<label><small>Student Number</small></label>
-				<input type="text" name="user_std_id" class="form-control" required="required" placeholder="Student Number">
+				<input type="text" name="user_std_id" class="form-control" required="required" placeholder="Student Number" autofocus>
 			</div>
 
 			<div class="list-group-item">
 				<label><small>Full Name</small></label>
-				<input type="text" name="user_name" class="form-control" required="required" placeholder="Full Name" autofocus>
+				<input type="text" name="user_name" class="form-control" required="required" placeholder="Full Name">
 			</div>
 			
 			<div class="list-group-item">
