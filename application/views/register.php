@@ -105,7 +105,7 @@
 		<?php endif; ?>
 		<?php echo form_open('index/process',array('class' => 'form-horizontal')); ?>
         <input type="hidden" name="action" value="<?php echo $action; ?>"/>
-        <?php if($action == 0) { ?>
+        <?php if($action == 0) {?>
 			<legend>
             <h3>Exclusive for Binalbagan Catholic College only.</h3>
             <h3>REGISTER</h3> <a class="col-md-12" href="">Have an account? Sign In!</a>
@@ -113,7 +113,7 @@
 		<?php } else { ?>
 			<legend>
             <h3>Exclusive for Binalbagan Catholic College only.</h3>
-            <h3>Create Admin account.</h3>
+            <h3>Create Admin account.</h3> <a class="col-md-12" href="admin">Go back to admin</a>
             </legend>
         <?php } ?>
 			<div class="list-group-item">

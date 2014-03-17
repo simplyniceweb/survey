@@ -30,7 +30,7 @@ class Index extends CI_Controller {
 		$data["action"] = 0;
 		$mysession = $this->session->userdata('logged');
 
-		if($mysession && $mysession["user_level"] != 99) {
+		if(isset($mysession) && $mysession["user_level"] != 99) {
 			redirect('main');
 		} else {
 			$data["action"] = sha1(1);
