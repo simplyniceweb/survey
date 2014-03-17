@@ -29,11 +29,13 @@ class Index extends CI_Controller {
 	public function register() {
 		$data["action"] = 0;
 		$mysession = $this->session->userdata('logged');
-
-		if(isset($mysession) && $mysession["user_level"] != 99) {
-			redirect('main');
-		} else {
-			$data["action"] = sha1(1);
+		
+		if($mysession) {
+			if($mysession["user_level"] == 99) {
+				$data["action"] = sha1(1);
+			} else if($mysession["user_level"] == 0){
+				redirect("main");
+			}
 		}
 
 		$this->load->view('register', $data);
